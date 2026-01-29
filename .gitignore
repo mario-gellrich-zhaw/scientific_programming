@@ -32,31 +32,21 @@ dist/
 
 # Single files / solutions
 solution_challenge_week_01.ipynb
-
 solution_challenge_week_01.html
-
 solution_challenge_week_02.ipynb
-
 solution_challenge_week_03.ipynb
-petrol_stations.json
-petrol_stations.csv
-
 solution_challenge_week_04.ipynb
+solution_challenge_week_05
+solution_challenge_week_06.ipynb
+solution_challenge_week_07.ipynb
+solution_challenge_week_08.ipynb
+solution_challenge_week_09.ipynb
+solution_challenge_week_10.ipynb
+
 Titanic-Dataset.csv
 BigmacPrice.csv
 chicken_data.xlsx
-
-solution_challenge_week_05
-solution_challenge_week_06.ipynb
 dice_game.py
-
-solution_challenge_week_07.ipynb
-
-solution_challenge_week_08.ipynb
-
-solution_challenge_week_09.ipynb
-
-solution_challenge_week_10.ipynb
 water_level_data.py
 hydro_data.csv
 index.html
@@ -77,8 +67,3 @@ app.py
 # Week_12/
 # Week_13/
 # Week_14/
-
-
-git rm --cached Week_01/challenge/Titanic-Dataset.csv
-git commit -m '...'
-git push -u origin master
