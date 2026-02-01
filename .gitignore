@@ -34,10 +34,10 @@ dist/
 temp_assets
 
 # Video files
-.mp3
-.mp4
-.mov
-.mwv
+*.mp3
+*.mp4
+*.mov
+*.mwv
 
 # Kaggle API key
 kaggle.json
