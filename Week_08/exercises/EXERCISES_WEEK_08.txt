@@ -105,13 +105,23 @@ read_multiple()
     functions where this parameter is listed. Save the extracted text to a file.
 
 #----------------------------------------------------------------------
-# Procedural programming: Optical character recognition (OCR) example
+# Procedural programming: Tiny LLM next word prediction
+#----------------------------------------------------------------------
+
+1.) Run the Jupyter notebook 'tiny_llm_next_word_prediction.ipynb' step by step.
+
+2.) The Jupyter notebook shows how to train a small model to predict the next word.
+
+3.) Replace the example text with your own text and crate predictions. 
+
+#----------------------------------------------------------------------
+# Procedural programming: PDF -> Text-to-Speech -> Video
 #----------------------------------------------------------------------
 
 1.) Get the OpenAI key from Moodle and store it in a file named .env.
     See .env.example for example usage.
 
-2.) Run the Jupyter notebook 'pdf_slides_to_video.ipynb' step by step.
+2.) Run the Jupyter notebook 'pdf_slides_to_tts_to_video.ipynb' step by step.
 
 3.) Use the example to generate your own video (note that the file size can be large).
 
