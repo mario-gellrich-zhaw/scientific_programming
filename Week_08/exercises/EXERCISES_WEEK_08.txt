@@ -108,7 +108,8 @@ read_multiple()
 # Procedural programming: Optical character recognition (OCR) example
 #----------------------------------------------------------------------
 
-1.) Get the OpenAI key from Moodle.
+1.) Get the OpenAI key from Moodle and store it in a file named .env.
+    See .env.example for example usage.
 
 2.) Run the Jupyter notebook 'pdf_slides_to_video.ipynb' step by step.
 
@@ -118,7 +119,8 @@ read_multiple()
 # Procedural programming: LLM + RAG
 #----------------------------------------------------------------------
 
-1.) Get the OpenAI key from Moodle.
+1.) Get the OpenAI key from Moodle and store it in a file named .env.
+    See .env.example for example usage.
 
 2.) Run the Jupyter notebook 'retrieval_augmented_generation.ipynb' step by step.
 
