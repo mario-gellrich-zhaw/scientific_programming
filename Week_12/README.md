@@ -1,5 +1,5 @@
-# Project Setup & Workflow
+## No Additional Material This Week
 
-The workshop template is available on: https://github.com/mario-gellrich-zhaw/scientific_programming_workshop 
+There will be no additional material provided this week.
 
-Fork the template to your own GitHub repository and create a GitHub Codespaces environment.
+I will be available to support your project work throughout the week — please feel free to reach out if you have any questions or would like feedback on your progress.
