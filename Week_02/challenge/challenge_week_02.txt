@@ -7,7 +7,7 @@
 
 Tasks (use Visual Studio Code and Jupyter Notebook in GitHub Codespaces):
 
-1.) Replace the kaggle.json File in this folder with your own one (see README.md).
+1.) Put your kaggle.json file in the repository root (same folder as requirements.txt) (see README.md).
 
 2.) Use the Kaggle Web API to download the Titanic data set.
     Link: https://www.kaggle.com/datasets/yasserh/titanic-dataset?select=Titanic-Dataset.csv
