@@ -11,7 +11,7 @@ Background:
 Imagine you have a customer, a larger company with petrol stations 
 spread all over Europe. For a competitor analysis, the customer 
 would like to know how many petrol stations there are per operator in 
-a radius of 5000 m from the city center of Zurich and which are the 5 largest 
+a radius of 5000 m around the city center of Zurich and which are the 5 largest 
 operators in terms of the total number of petrol stations. To solve the task 
 you decide to use the following workflow:
 
