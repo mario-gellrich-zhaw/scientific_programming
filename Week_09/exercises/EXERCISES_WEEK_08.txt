@@ -71,17 +71,6 @@ def read_multiple(path='.', csv_sep=";"):
 read_multiple()
 
 #----------------------------------------------------------------------
-# Procedural programming: Flickr example 
-#----------------------------------------------------------------------
-
-1.) Run the Jupyter notebook 'flickr_example.ipynb' step by step.
-
-2.) Define own keywords to search for photos and run the Jupyter notebook to
-    get information about the photos and plot the photos.
-
-3.) Extent the Jupyter notebook to download photos of dogs.
-
-#----------------------------------------------------------------------
 # Procedural programming: Power Point slideset translation example
 #----------------------------------------------------------------------
 
