@@ -4,7 +4,7 @@
 sudo apt update -y
 
 # Install dependencies
-sudo apt install -y curl
+sudo apt install -y curl zstd
 
 # Install Ollama
 curl -fsSL https://ollama.com/install.sh | sh
