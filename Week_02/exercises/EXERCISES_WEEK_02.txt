@@ -44,12 +44,7 @@
 # Operators and Expressions
 #-----------------------------------------------------------------------------
 
-1.) Make sure that the file kaggle.json (in the repository root) contains a valid user name and API-key.
-    You can find a temporary key which is valid for the course day on Moodle.
-    You can get your own API-key with a Kaggle account from: https://www.kaggle.com/settings
-    Replace the "xxxxxxxxxxxxx" strings in the file with the user-name and API-key.
-
-    {"username":"xxxxxxxxxxxxxxxxxx","key":"xxxxxxxxxxxxxxxxxxxxx"}
+1.) Put your kaggle.json file in the repository root (same folder as requirements.txt) (see README.md).
 
 2.) Run the Jupyter notebook 'operators_and_expressions.ipynb' step by step.
 
