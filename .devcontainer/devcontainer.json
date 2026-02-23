@@ -23,7 +23,8 @@
 				"github.copilot",
 				"github.copilot-chat",
 				"mechatroner.rainbow-csv",
-				"tal7aouy.icons"
+				"tal7aouy.icons",
+				"anthropic.claude-code"
 			],
 			"settings": {
 				"workbench.colorTheme": "Default Dark+",
