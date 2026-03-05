@@ -1,0 +1,155 @@
+#-------------------------------------------------------------------------------
+# Jupyter Notebook Tips
+#-------------------------------------------------------------------------------
+
+#---------------------------------
+# Handling
+#---------------------------------
+- run all codecells
+    Menu: Kernel > Restart & Run All  (or Cell > Run All to keep kernel state)
+
+- run single codecell
+    Shift + Enter   -> run cell and move to next cell
+    Ctrl  + Enter   -> run cell and stay on same cell
+    Alt   + Enter   -> run cell and insert new cell below
+
+- clear outputs
+    Menu: Cell > All Output > Clear  (clears all outputs in the notebook)
+    Menu: Cell > Current Outputs > Clear  (clears only the selected cell)
+
+- restart
+    Menu: Kernel > Restart (clears all variables, does NOT re-run cells)
+    Menu: Kernel > Restart & Clear Output (also clears all cell outputs)
+    Menu: Kernel > Restart & Run All (restarts and re-runs the entire notebook)
+
+- define new short cuts
+    Menu: Help > Keyboard Shortcuts (view all shortcuts)
+    Menu: Help > Edit Keyboard Shortcuts (add or override shortcuts in JSON format)
+
+#---------------------------------
+# Show package version
+#---------------------------------
+# Works for any package that exposes __version__
+import numpy as np
+np.__version__          # returns the version string, e.g. '1.26.4'
+
+# Alternative: works even when __version__ is not defined
+import importlib.metadata
+importlib.metadata.version("numpy")   # e.g. '1.26.4'
+
+#---------------------------------
+# Getting help
+#---------------------------------
+# Append ? to open the docstring in a pop-up pane at the bottom
+np.random.normal?
+
+# Use help() for a plain-text printout of the full docstring
+help(np.random.normal)
+
+# Append ?? to also show the source code (when available)
+np.random.normal??
+
+# Tab-completion: type np.random. and press Tab to browse available functions
+
+#---------------------------------
+# Magic commands
+#---------------------------------
+%pwd                        # print current working directory
+
+x = 5
+y = 6
+z = x + y
+
+%who                        # list all variables currently defined in the kernel
+%whos                       # like %who but also shows type and value
+
+%time sum(range(1000))      # measure wall time for a single run
+%timeit sum(range(1000))    # measure average time over many runs (more accurate)
+
+%hist                       # show command history of the current session
+%magic                      # open full documentation for all magic commands
+
+# Cell magic (prefix with %% instead of % and applies to the whole cell):
+# %%time   -> time the entire cell
+# %%timeit -> benchmark the entire cell
+
+#---------------------------------
+# HTML in Markdown Cell
+#---------------------------------
+# Switch a cell to Markdown type: press M in command mode (Esc first)
+# Switch back to Code type:       press Y in command mode
+# Render the cell:                Shift + Enter
+
+<h1 style="text-align:left; color: #306998; border-bottom: 3px solid #FFD43B; padding-bottom: 6px;">Welcome to Python!</h1>
+
+<div style="text-align:left; margin: 12px 0;">
+  <img src="https://www.python.org/static/community_logos/python-logo.png" alt="Python Logo" width="200">
+</div>
+
+<p style="text-align:left; color: #444; font-size: 15px;">Learn about Python's key features:</p>
+
+<table style="border-collapse: collapse; width: 60%; text-align: left; font-family: sans-serif; font-size: 14px;">
+  <tr style="background-color: #306998; color: #ffffff;">
+    <th style="border: 1px solid #1a4a7a; padding: 10px 14px;">Feature</th>
+    <th style="border: 1px solid #1a4a7a; padding: 10px 14px;">Description</th>
+  </tr>
+  <tr style="background-color: #eef4fb;">
+    <td style="border: 1px solid #c5d8ee; padding: 9px 14px; font-weight: bold; color: #306998;">Simplicity</td>
+    <td style="border: 1px solid #c5d8ee; padding: 9px 14px; color: #333;">Easy to read and learn.</td>
+  </tr>
+  <tr style="background-color: #ffffff;">
+    <td style="border: 1px solid #c5d8ee; padding: 9px 14px; font-weight: bold; color: #306998;">Versatility</td>
+    <td style="border: 1px solid #c5d8ee; padding: 9px 14px; color: #333;">Widely used in web development, data science, automation, and more.</td>
+  </tr>
+  <tr style="background-color: #eef4fb;">
+    <td style="border: 1px solid #c5d8ee; padding: 9px 14px; font-weight: bold; color: #306998;">Community</td>
+    <td style="border: 1px solid #c5d8ee; padding: 9px 14px; color: #333;">Vibrant community offering extensive libraries and support.</td>
+  </tr>
+</table>
+
+#------------------------------------
+# Table of contents in markdown cells
+#------------------------------------
+# How it works:
+#   - Create a Markdown cell at the top of the notebook
+#   - Write a list of links using the syntax: [Label](#anchor)
+#   - The anchor is the heading text in lowercase with spaces replaced by hyphens
+#   - Jupyter auto-generates anchors from ## Headings — clicking a link jumps to it
+
+# Table of Contents
+
+- [Introduction](#introduction)
+- [Lesson Objectives](#lesson-objectives)
+- [Examples](#examples)
+- [Summary](#summary)
+
+
+## Introduction
+Welcome to the lesson! This section introduces the main topics.
+
+## Lesson Objectives
+- Understand the basics of Markdown.
+- Learn how to create a table of contents.
+- Create internal links to navigate your notebook easily.
+
+## Examples
+Here you'll find examples of Markdown formatting and links.
+
+## Summary
+A quick recap of what we learned today.
+
+#--------------------------------------
+# Display Multiple Outputs in Code Cell
+#--------------------------------------
+# By default Jupyter only shows the last expression in a cell.
+# Setting ast_node_interactivity = "all" makes every expression print its result.
+
+from IPython.core.interactiveshell import InteractiveShell
+import seaborn as sns
+
+iris = sns.load_dataset('iris')
+
+InteractiveShell.ast_node_interactivity = "all"  # options: "all", "last", "last_expr", "none"
+
+iris.head(3)  # Output is displayed
+iris.tail(3)  # Output is displayed

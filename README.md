@@ -5,11 +5,13 @@
   - [Module Structure](#module-structure)
   - [Setting up GitHub Codespaces](#setting-up-github-codespaces)
   - [Settings in VS Code](#settings-in-vs-code)
+  - [Configuring your repository’s remotes](#configuring-your-repositorys-remotes)
   - [Sync origin with upstream](#sync-origin-with-upstream)
   - [Solving merge conflicts](#solving-merge-conflicts)
   - [Using GitHub Copilot in VS-Code](#using-github-copilot-in-vs-code)
   - [Run OLLAMA in your Codespace](#run-ollama-in-your-codespace)
   - [Get the Kaggle API-key](#get-the-kaggle-api-key)
+  - [PostgreSQL Setup](#postgresql-setup)
 
 ## Module Description
 
@@ -69,7 +71,7 @@ In VS Code Settings (CTRL+,):
 
   This will add a vertical line to the editor area showing when the max. number of characters in the code is reached.
 
-## Sync origin with upstream
+## Configuring your repository’s remotes
 
 First, make sure the upstream has been added and the origin's url is set.
 
@@ -88,21 +90,65 @@ git remote add upstream https://github.com/mario-gellrich-zhaw/scientific_progra
 git remote set-url origin https://github.com/YOUR-USERNAME/scientific_programming.git
 ```
 
-To sync your fork (origin) and GitHub Codespaces environment with the upstream repository you can use the following Git commands:
+## Sync origin with upstream
+
+To sync your fork (origin) and GitHub Codespaces environment with the upstream repository, you need to regularly pull the latest course materials. **We recommend doing this before starting each week's exercises.**
+
+### Before syncing
+
+1. Check your current status:
+  ```bash
+  git status
+  ```
+2. If you have uncommitted changes, either commit them or stash them:
+  ```bash
+  # Option A: Commit your changes
+  git add .
+  git commit -m "Your commit message"
+  git push origin master
+   
+  # Option B: Temporarily stash your changes
+  git stash
+  ```
+
+### Recommended: Merge upstream changes (preserves your work)
+
+This is the **safest approach** as it preserves your local commits and modifications:
 
 ```bash
-# Option (1): Sync your fork/clone to exactly match the upstream (your local changes will be overwritten)
-git fetch upstream
-git checkout master
-git reset --hard upstream/master
-git push origin master --force
-
-# Option (2): Sync your fork/clone with the upstream (your local changes are preserved but merge conflicts may have to be resolved)
 git fetch upstream
 git checkout master
 git merge upstream/master
 git push origin master
 ```
+
+**Note:** If merge conflicts occur, VS Code will help you resolve them using the Merge Editor (see "Solving merge conflicts" section below).
+
+### Advanced: Clean reset to upstream (discards local changes)
+
+**WARNING:** This option will **overwrite all your local changes** on the master branch. Only use this if:
+- You want a completely clean copy of upstream, OR
+- Your local changes are accidentally broken and you want to start fresh
+
+```bash
+git fetch upstream
+git checkout master
+git reset --hard upstream/master
+git push origin master --force
+```
+
+### Alternative: Use rebase (for advanced users)
+
+If you want a cleaner commit history without merge commits:
+
+```bash
+git fetch upstream
+git checkout master
+git rebase upstream/master
+git push origin master --force-with-lease
+```
+
+**Best practice:** Sync at the beginning of each week to ensure you have the latest materials before starting new exercises.
 
 ## Solving merge conflicts
 
@@ -149,3 +195,36 @@ The following video explains how this works: https://www.youtube.com/watch?v=KuB
    - Create a Kaggle account on https://www.kaggle.com.
    - On https://www.kaggle.com/settings -> API -> Create New Token
    - This will trigger the download of kaggle.json, a file containing your API credentials.
+
+## PostgreSQL Setup
+
+A PostgreSQL 16 database is included in your Codespace and starts automatically when the dev container is created. No manual installation or configuration is required — everything is defined in [`.devcontainer/docker-compose.yml`](.devcontainer/docker-compose.yml).
+
+### Connection details
+
+| Parameter | Value     |
+|-----------|-----------|
+| Host      | `db`      |
+| Port      | `5432`    |
+| Database  | `scidb`   |
+| User      | `postgres`|
+| Password  | `geheim`  |
+
+### Connect from Python (copy/paste the following code to a Jupyter Notebook or .py file)
+
+```python
+import pandas as pd
+from sqlalchemy import create_engine, text
+
+engine = create_engine("postgresql+psycopg2://postgres:geheim@db:5432/scidb")
+
+with engine.connect() as conn:
+    result = conn.execute(text("SELECT * FROM my_test_table ORDER BY id"))
+    df = pd.DataFrame(result.fetchall(), columns=result.keys())
+
+df
+```
+
+### Data persistence
+
+Database data is stored in the Docker volume `postgres-data`, so it persists across Codespace restarts.

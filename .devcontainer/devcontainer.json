@@ -1,6 +1,14 @@
 {
 	"name": "Python 3.11 with Jupyter and PDF Preview",
-	"image": "mcr.microsoft.com/devcontainers/python:3.11",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+	"forwardPorts": [5432],
+	"portsAttributes": {
+		"5432": {
+			"label": "PostgreSQL"
+		}
+	},
 
 	"customizations": {
 		"vscode": {
@@ -15,7 +23,9 @@
 				"github.copilot",
 				"github.copilot-chat",
 				"mechatroner.rainbow-csv",
-				"tal7aouy.icons"
+				"tal7aouy.icons",
+				"anthropic.claude-code",
+				"analytic-signal.preview-html"
 			],
 			"settings": {
 				"workbench.colorTheme": "Default Dark+",
@@ -25,5 +35,5 @@
 		}
 	},
 
-	"postCreateCommand": "chmod +x .devcontainer/setup.sh && bash .devcontainer/setup.sh && pip install -r requirements.txt && sudo apt-get update && sudo apt-get install -y tesseract-ocr && sudo apt-get install -y tesseract-ocr-deu"
+	"postCreateCommand": "chmod +x .devcontainer/setup.sh && bash .devcontainer/setup.sh && pip install -r requirements.txt && sudo apt-get update && sudo apt-get install -y tesseract-ocr && sudo apt-get install -y tesseract-ocr-deu && sudo apt-get install -y postgresql-client"
 }

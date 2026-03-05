@@ -5,9 +5,8 @@
 | |___/ /^\ \ \__/\| |___| |\ \ | \__/\_| |_/\__/ / |___/\__/ /
 \____/\/   \/\____/\____/\_| \_| \____/\___/\____/\____/\____/ 
 
-
 #-----------------------------------------------------------------------------
-# Web Scraping with Python and Beautifulsoup
+# Web Scraping (Task I)
 #-----------------------------------------------------------------------------
 
 1.) Run the Jupyter notebook 'webscraping_skipass_prices.ipynb' step by step.
@@ -22,6 +21,29 @@
 
 5.) Create a new column 'price_per_m2' and show the values in a histogram.
     Hint: you can calculate the new variable based on area and price
+
+#-----------------------------------------------------------------------------
+# Web Scraping (Task II)
+#-----------------------------------------------------------------------------
+
+1.) Create a new Jupyter notebook named 'iwi_mitarbeitende_kontakte.ipynb'.
+
+2.) Start from the page
+    https://www.zhaw.ch/de/sml/institute-zentren/iwi/ueber-uns
+    and extract links to the individual employee profile pages.
+
+3.) Visit each profile page and scrape the following fields:
+    - First name
+    - Last name
+    - E-mail
+    - Phone number
+
+4.) Store the collected results in a pandas DataFrame with these columns:
+    'Vorname', 'Name', 'Email', 'Telefon'
+
+5.) Sort the DataFrame by 'Name' and 'Vorname', then show the final table.
+
+6.) (Optional) Save the resulting DataFrame as 'iwi_contacts.csv' in the data folder.
 
 #-----------------------------------------------------------------------------
 # Input & Output in Python
@@ -60,4 +82,3 @@
 4.) Create a histogram of the selected prices.
 
 5.) Store the histogram in a file histogram.png in the data folder.
-
