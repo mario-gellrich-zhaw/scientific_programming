@@ -23,6 +23,6 @@ government ask you to provide an analysis based on the most recent data.
 2.) Store the data in a data frame and count the number of operators 
     (You can use the colum: OperatorID)
 
-3.) Derive all data from the operator 'evpass' and store it in a data frame
+3.) Derive all data from the operator 'eCarUp' and store it in a data frame
 
-4.) Plot the charging stations of the operator 'evpass' on a map.
+4.) Plot the charging stations of the operator 'eCarUp' on a map.
